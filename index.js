@@ -14,6 +14,7 @@ module.exports = function (credentials = {}) {
       return yield next;
     }
 
-    this.throw(401);
+    this.status = 401;
+    this.set('WWW-Authenticate', 'Basic');
   };
 }
