@@ -9,7 +9,6 @@ module.exports = function (credentials = {}, options = {}) {
 
     if (options.hash) {
       user.pass = crypto.createHash(options.hash).update(user.pass).digest('hex');
-      console.log(user.pass);
     }
 
     if (
