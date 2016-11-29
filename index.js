@@ -7,7 +7,7 @@ module.exports = function (credentials = {}, options = {}) {
   return function *(next) {
     const user = basicAuth(this);
 
-    if (options.hash) {
+    if (user && options.hash) {
       user.pass = crypto.createHash(options.hash).update(user.pass).digest('hex');
     }
 
