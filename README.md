@@ -12,3 +12,15 @@ app.use(basicAuth({
 }));
 
 ```
+
+## Support for password hashing algorithm 
+
+```js
+app.use(basicAuth({
+  john: 'smith',
+  igor: 'e98ef4146865a8ccaca773182be30990'
+}, {
+  hashing_algorithm: 'md5',
+}));
+
+```
