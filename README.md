@@ -1,12 +1,12 @@
 # koa-basic-auth
 
-```js
-const koa = require('koa');
-const basicAuth = require('@rainder/koa-basic-auth');
+```typescript
+import * as Koa from 'koa';
+import { KoaBasicAuth } from '@rainder/koa-basic-auth';
 
-const app = koa();
+const app = new Koa();
 
-app.use(basicAuth({
+app.use(KoaBasicAuth.middleware({
   john: 'smith',
   igor: 'danutov'
 }));
@@ -15,12 +15,14 @@ app.use(basicAuth({
 
 ## Support for password hashing algorithm 
 
-```js
-app.use(basicAuth({
+```typescript
+import { KoaBasicAuth } from '@rainder/koa-basic-auth';
+
+app.use(KoaBasicAuth.middleware({
   john: 'a66e44736e753d4533746ced572ca821',
   igor: 'e98ef4146865a8ccaca773182be30990'
 }, {
-  hashing_algorithm: 'md5',
+  hashingAlgorithm: 'md5',
 }));
 
 ```
